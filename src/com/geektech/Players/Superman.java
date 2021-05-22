@@ -15,7 +15,8 @@ public class Superman extends JusticeLeague {
         int coef = random.nextInt(3) + 2;
         if (this.getHealth() > 0) {
             this.setDamage(this.getDamage() * coef);
-            System.out.println(this.getName() + " used " + coef + " times critical strike");
+            System.out.println(this.getName() + " used " + coef + " times critical strike = ["
+                    + this.getDamage() * coef + "]");
         }
     }
 }

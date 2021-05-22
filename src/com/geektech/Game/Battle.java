@@ -8,7 +8,7 @@ public class Battle {
 
     public static void startBattle() {
 
-        Villain darkseid = new Villain("Darkseid", 2000, 80);
+        Villain darkseid = new Villain("Darkseid", 2000, 100);
 
         Superman superman = new Superman("Superman", 300, 20, EnumSuperSkill.LASER_VISION);
         WonderWoman wonderWoman = new WonderWoman("Wonder Woman", 200, 10, EnumSuperSkill.LASSO_OF_TRUTH);
@@ -17,7 +17,11 @@ public class Battle {
         Medic doc = new Medic("Doc", 150, 0, EnumSuperSkill.TO_HEAL, 10);
         Medic nurse = new Medic("Nurse", 150, 0, EnumSuperSkill.TO_HEAL, 5);
 
-        JusticeLeague[] justiceLeague = {superman, wonderWoman, flash, doc, nurse};
+        Shazam shazam = new Shazam("Shazam", 200, 0, EnumSuperSkill.LIGHTNING);
+        Aquaman aquaman = new Aquaman("Aquaman", 400, 3, EnumSuperSkill.TO_RULE_FISHES);
+        Cyborg cyborg = new Cyborg("Cyborg", 250, 0, EnumSuperSkill.TO_FLY);
+
+        JusticeLeague[] justiceLeague = {superman, wonderWoman, flash, doc, nurse, shazam, aquaman, cyborg};
 
         System.out.println("--------------THE BATTLE HAS STARTED--------------");
         printStatistics(darkseid, justiceLeague);
@@ -30,12 +34,11 @@ public class Battle {
     private static void round(Villain darkseid, JusticeLeague[] justiceLeague) {
         roundNumber++;
         System.out.println("---------------ROUND NUMBER " + roundNumber + "---------------");
-        superAbility(darkseid, justiceLeague);
-        System.out.println(" * * * * * * * * * * * * * * * * * * * *");
         darkseidHits(darkseid, justiceLeague);
         justiceLeagueHit(darkseid, justiceLeague);
+        superAbility(darkseid, justiceLeague);
+        System.out.println(" * * * * * * * * * * * * * * * * * * * *");
         printStatistics(darkseid, justiceLeague);
-
     }
 
     private static void superAbility(Villain darkseid, JusticeLeague[] justiceLeague) {
